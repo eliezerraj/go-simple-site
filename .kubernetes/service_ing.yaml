@@ -1,0 +1,71 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-go-simple-site-bike
+  namespace: test-a
+  labels:
+    app: "svc-go-simple-site-bike"
+    version: "1.0"
+spec:
+  type: ClusterIP
+  ports:
+  - port: 3000
+    targetPort: 3000
+    protocol: TCP
+    name: bike
+  selector:
+    app: go-simple-site-bike
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-go-simple-site-food
+  namespace: test-a
+  labels:
+    app: "svc-go-simple-site-food"
+    version: "1.0"
+spec:
+  type: ClusterIP
+  ports:
+  - port: 3001
+    targetPort: 3000
+    protocol: TCP
+    name: food
+  selector:
+    app: go-simple-site-food
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-go-simple-site-pay
+  namespace: test-a
+  labels:
+    app: "svc-go-simple-site-pay"
+    version: "1.0"
+spec:
+  type: ClusterIP
+  ports:
+  - port: 3002
+    targetPort: 3000
+    protocol: TCP
+    name: food
+  selector:
+    app: go-simple-site-pay
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-go-simple-site-stream
+  namespace: test-a
+  labels:
+    app: "svc-go-simple-site-stream"
+    version: "1.0"
+spec:
+  type: ClusterIP
+  ports:
+  - port: 3003
+    targetPort: 3000
+    protocol: TCP
+    name: food
+  selector:
+    app: go-simple-site-stream
